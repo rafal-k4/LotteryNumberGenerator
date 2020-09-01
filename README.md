@@ -1,3 +1,11 @@
+# Github Page Deploy:
+
+In order to deploy for github static page, run this command:
+
+````
+> ng build --prod --output-path docs --base-href /LotteryNumberGenerator/
+````
+
 # LotteryNumberGenerator
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.8.
