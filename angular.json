@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "LotteryNumberGenerator"
+    }
+  },
+  "defaultProject": "LotteryNumberGenerator",
+  "cli": {
+    "analytics": "e09c27e7-8f08-40f4-a97b-a3b384406ba1"
+  }
 }
