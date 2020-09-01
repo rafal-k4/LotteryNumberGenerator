@@ -21,6 +21,7 @@ jobs:
     steps:
       - name: Checkout
         # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it 
+        # more on checkout@v2 is here: https://github.com/actions/checkout
         uses: actions/checkout@v2
       - name: Use Node 12.x
         uses: actions/setup-node@v1
@@ -64,4 +65,4 @@ jobs:
           with:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             BRANCH: gh-pages
-            FOLDER: deploy_dist/LotteryNumberGenerator
+            FOLDER: docs
