@@ -46,17 +46,23 @@ jobs:
       #     name: deploy_dist
       #     path: dist
       
-      - name: Git clone
-      # github.repository is from github context, more -> https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#github-context
-        run: git clone https://github.com/${{ github.repository }} . 
+      # - name: Git clone
+      # # github.repository is from github context, more -> https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#github-context
+      #   run: git clone https://github.com/${{ github.repository }} . 
+      - name: Initialize Git Repo
+        run: git init
       - name: Set git username
         run: git config user.name "{{ github.actor }}"
       - name: Set git user email
         run: git config user.email "{{ github.actor }}@auto-raise-version.com"
+      - name: Add origin with authentication
+        run: git remote add origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/{{ github.repository }}
+      - name: Checkout to master
+        run: git checkout master
       - name: Bump version and create commit with tag
         run: npm version patch
-      - name: Authenticate push
-        run: git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/{{ github.repository }}
+      # - name: Authenticate push
+      #   run: git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/{{ github.repository }}
       - name: push changes to master branch
         run: git push --follow-tags
                   
