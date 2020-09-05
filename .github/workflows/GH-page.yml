@@ -81,8 +81,8 @@ jobs:
       - name: Add new remote with authentication
         run: git remote add versioningRemote https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
 
-      - name: Pull Changes
-        run: git pull versioningRemote
+      - name: Fetch Changes
+        run: git fetch versioningRemote
 
       - name: Checkout to master
         run: git checkout master
