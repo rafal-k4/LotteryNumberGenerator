@@ -18,10 +18,9 @@ jobs:
     # needs: deploy
     steps:
       - name: Create Git Repo
-        run: |
-        echo ${{ secrets.GITHUB_REPOSITORY }} \
-        git clone ${{ secrets.GITHUB_REPOSITORY }} \
-        npm version patch
+        run: echo ${{ secrets.GITHUB_REPOSITORY }}
+      - name: Git init
+        run: git init 
 
 
   # This workflow contains a single job called "build"
