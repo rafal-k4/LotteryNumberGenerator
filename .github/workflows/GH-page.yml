@@ -26,7 +26,7 @@ jobs:
       # github.repository is from github context, more -> https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#github-context
       - name: Git clone
         run: |
-        git status && git log
+        git status; git log
 
 
   # This workflow contains a single job called "build"
