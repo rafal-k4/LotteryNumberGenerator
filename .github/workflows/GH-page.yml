@@ -23,15 +23,23 @@ jobs:
       - name: Create Git Repo
         run: echo ${{ github.context.repo.repo }}
       - name: Create Git Repo
-        run: echo ${{ secrets.GITHUB_TOKEN }}
+        run: echo ${{ github.event.repository.name }}
       - name: Create Git Repo
-        run: echo ${{ secrets.GITHUB_WORKFLOW }}
+        run: echo ${{ github.workspace }}
       - name: Create Git Repo
-        run: echo ${{ secrets.GITHUB_WORKSPACE }}
+        run: echo ${{ github.repository }}
       - name: Create Git Repo
-        run: echo ${{ secrets.GITHUB_SERVER_URL }}
+        run: echo ${{ github.GITHUB_REPOSITORY }}
       - name: Create Git Repo
-        run: echo ${{ secrets.GITHUB_EVENT_PATH }}
+        run: echo ${{ github.GITHUB_EVENT_PATH }}
+      - name: Create Git Repo
+        run: echo ${{ github.GITHUB_SERVER_URL }}  
+      - name: Create Git Repo
+        run: echo ${{ GITHUB_WORKSPACE }}
+      - name: Create Git Repo
+        run: echo ${{ GITHUB_EVENT_PATH }}
+      - name: Create Git Repo
+        run: echo ${{ GITHUB_REPOSITORY }}
 
       - name: Git clone
         run: git clone https://github.com/rafal-k4/LotteryNumberGenerator.git . 
