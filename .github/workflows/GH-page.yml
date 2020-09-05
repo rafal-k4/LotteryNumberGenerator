@@ -19,7 +19,9 @@ jobs:
     # needs: deploy
     steps:
       - name: Create Git Repo
-        run: echo ${{ secrets.GITHUB_REPOSITORY }}
+        run: echo ${{ github.context.repo.owner }}
+      - name: Create Git Repo
+        run: echo ${{ github.context.repo.repo }}
       - name: Create Git Repo
         run: echo ${{ secrets.GITHUB_TOKEN }}
       - name: Create Git Repo
