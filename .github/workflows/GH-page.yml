@@ -19,8 +19,8 @@ jobs:
     steps:
       - name: Create Git Repo
         run: |
-        echo ${{ secrets.GITHUB_REPOSITORY }}
-        git clone ${{ secrets.GITHUB_REPOSITORY }} 
+        echo ${{ secrets.GITHUB_REPOSITORY }} \
+        git clone ${{ secrets.GITHUB_REPOSITORY }} \
         npm version patch
 
 
