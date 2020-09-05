@@ -73,6 +73,10 @@ jobs:
       - name: Git clone
       # github.repository is from github context, more -> https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#github-context
         run: git clone https://github.com/${{ github.repository }} . 
+      - name: Set git username
+        run: git config user.name "{{ github.actor }}"
+      - name: Set git user email
+        run: git config user.email "{{ github.actor }}@auto-raise-version.com"
       - name: Bump version and create commit with tag
         run: npm version patch
       - name: push changes to master branch
