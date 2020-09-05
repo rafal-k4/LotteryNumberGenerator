@@ -18,26 +18,18 @@ jobs:
     runs-on: ubuntu-latest
     # needs: deploy
     steps:
-      - name: Create Git Repo
-        run: echo ${{ github.context.repo.owner }}
-      - name: Create Git Repo
-        run: echo ${{ github.context.repo.repo }}
-      - name: Create Git Repo
-        run: echo ${{ github.event.repository.name }}
-      - name: Create Git Repo
+      - name: Works Create Git Repo
         run: echo ${{ github.workspace }}
-      - name: Create Git Repo
+      - name: Works Create Git Repo
         run: echo ${{ github.repository }}
       - name: Create Git Repo
-        run: echo ${{ github.GITHUB_REPOSITORY }}
-      - name: Create Git Repo
-        run: echo ${{ github.GITHUB_EVENT_PATH }}
-      - name: Create Git Repo
-        run: echo ${{ github.GITHUB_SERVER_URL }}  
-     
 
+      
+
+     
+      # github.repository is from github context, more -> https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#github-context
       - name: Git clone
-        run: git clone https://github.com/rafal-k4/LotteryNumberGenerator.git . 
+        run: git clone https://github.com/${{ github.repository }} . 
 
 
   # This workflow contains a single job called "build"
