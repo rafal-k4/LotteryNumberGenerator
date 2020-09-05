@@ -56,7 +56,7 @@ jobs:
       - name: Set git user email
         run: git config user.email "{{ github.actor }}@auto-raise-version.com"
       - name: Add origin with authentication
-        run: git remote add origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/{{ github.repository }}
+        run: git remote add origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
       - name: Checkout to master
         run: git checkout master
       - name: Bump version and create commit with tag
