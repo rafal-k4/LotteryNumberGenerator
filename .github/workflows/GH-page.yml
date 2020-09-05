@@ -81,11 +81,14 @@ jobs:
       - name: Add new remote with authentication
         run: git remote add versioningRemote https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
 
+      - name: Pull Changes
+        run: git pull versioningRemote
+
       - name: Checkout to master
         run: git checkout master
       - name: Bump version and create commit with tag
         run: npm version patch
-        
+
       - name: push changes to master branch
         run: git push --follow-tags versioningRemote master
   # command for clearing directory
