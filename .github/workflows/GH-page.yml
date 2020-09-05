@@ -39,12 +39,12 @@ jobs:
       # - name: Test
       #   run: npm run test:ci
       
-      - name: Archive build
-        if: success()
-        uses: actions/upload-artifact@v1
-        with:
-          name: deploy_dist
-          path: dist
+      # - name: Archive build
+      #   if: success()
+      #   uses: actions/upload-artifact@v1
+      #   with:
+      #     name: deploy_dist
+      #     path: dist
       
       - name: Git clone
       # github.repository is from github context, more -> https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#github-context
