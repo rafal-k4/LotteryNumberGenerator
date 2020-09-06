@@ -53,8 +53,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-          git config user.name github-actions
-          git config user.email github-actions@auto-raise-version.com
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@auto-raise-version.com"
           npm version patch
           git push
         # shell: cmd
