@@ -78,6 +78,6 @@ jobs:
           git config user.name "${{ github.actor }}"
           git config user.email "${{ github.actor }}@auto-raise-version.com"
           npm version patch
-          git push
+          git push --follow-tags
   # command for clearing directory
   # empty dir -> rm -rf .*
