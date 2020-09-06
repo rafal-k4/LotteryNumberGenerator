@@ -51,8 +51,10 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: actions/checkout@v2
-      - run: |
+      - name: Get latest commit
+        uses: actions/checkout@v2
+      - name: Raise version and push to the master
+        run: |
           git config user.name "${{ github.actor }}"
           git config user.email "${{ github.actor }}@auto-raise-version.com"
           npm version patch
