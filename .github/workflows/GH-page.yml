@@ -45,20 +45,6 @@ jobs:
         with:
           name: deploy_dist
           path: dist
-
-  Test:
-    name: Raise Version on master branch
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Get latest changes
-        uses: actions/checkout@v2
-      - name: Raise version and push to the master
-        run: |
-          git config user.name "${{ github.actor }}"
-          git config user.email "${{ github.actor }}@auto-raise-version.com"
-          npm version patch
-          git push
        
   Deploy:
     name: Deploy to Gihub Pages
@@ -85,25 +71,13 @@ jobs:
     runs-on: ubuntu-latest
     needs: deploy
     steps:
-      - name: Initialize Git Repo
-        run: git init
-      - name: Set git username
-        run: git config user.name "${{ github.actor }}"
-      - name: Set git user email
-        run: git config user.email "${{ github.actor }}@auto-raise-version.com"
-
-      - name: Add new remote with authentication
-        run: git remote add versioningRemote https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-
-      - name: Fetch Changes
-        run: git fetch versioningRemote
-
-      - name: Checkout to master
-        run: git checkout master
-      - name: Bump version and create commit with tag
-        run: npm version patch
-
-      - name: push changes to master branch
-        run: git push --follow-tags versioningRemote master
+      - name: Get latest changes
+        uses: actions/checkout@v2
+      - name: Raise version and push to the master
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@auto-raise-version.com"
+          npm version patch
+          git push
   # command for clearing directory
   # empty dir -> rm -rf .*
